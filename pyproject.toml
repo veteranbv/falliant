@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "falliant"
+version = "0.1.0"
+authors = [{ name = "Henry Sowell", email = "henry@homelab.engineering" }]
+description = "A terminal-based block stacking game"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Environment :: Console :: Curses",
+  "Topic :: Games/Entertainment :: Puzzle Games",
+]
+dependencies = ["windows-curses;platform_system=='Windows'"]
+
+[project.urls]
+"Homepage" = "https://github.com/veteranbv/falliant"
+"Bug Tracker" = "https://github.com/veteranbv/falliant/issues"
+
+[project.scripts]
+falliant = "falliant.__main__:main"
