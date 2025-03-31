@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "falliant"
-version = "0.1.0"
+version = "1.0.1"
 authors = [{ name = "Henry Sowell", email = "henry@homelab.engineering" }]
 description = "A terminal-based block stacking game"
-readme = "README.md"
+readme = "README.pypi.md"
 requires-python = ">=3.6"
+license = "MIT"
 classifiers = [
   "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Environment :: Console :: Curses",
   "Topic :: Games/Entertainment :: Puzzle Games",

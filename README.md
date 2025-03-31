@@ -21,7 +21,7 @@ A terminal-based block stacking game inspired by classic block stacking games, w
 
 ## Installation
 
-### Option 1: Install from PyPI (not yet available)
+### Option 1: Install from PyPI
 
 ```bash
 pip install falliant
@@ -105,6 +105,8 @@ If you encounter display issues:
 
 ## Development
 
+### Contributing
+
 To contribute to Falliant:
 
 1. Fork the repository
@@ -112,12 +114,102 @@ To contribute to Falliant:
 3. Make your changes
 4. Submit a pull request
 
-## Project Structure
+### Version Management
+
+#### Version Numbering Scheme
+
+We follow Semantic Versioning (SemVer):
+
+- **MAJOR.MINOR.PATCH** (e.g., `1.0.1`)
+  - **MAJOR**: Breaking changes
+  - **MINOR**: New features, backwards compatible
+  - **PATCH**: Bug fixes, documentation updates
+
+#### Version Synchronization
+
+The version number is synchronized across GitHub and PyPI through these rules:
+
+- `pyproject.toml` is the source of truth for version numbers
+- GitHub Releases/tags must match the version in `pyproject.toml`
+- PyPI releases are only triggered by GitHub Releases
+- The Bump Version workflow ensures all these stay in sync
+
+#### Methods for Version Updates
+
+1. **Automated Method (Preferred)**
+   - Go to GitHub Actions
+   - Select "Bump Version" workflow
+   - Click "Run workflow"
+   - Choose version type:
+     - `patch`: Bug fixes (1.0.0 → 1.0.1)
+     - `minor`: New features (1.0.0 → 1.1.0)
+     - `major`: Breaking changes (1.0.0 → 2.0.0)
+   - Review and merge the created pull request
+   - After merge, create a GitHub Release to trigger PyPI publish
+
+2. **Manual Method**
+
+   ```bash
+   # Update version in pyproject.toml
+   git add pyproject.toml
+   git commit -m "bump: version X.Y.Z → X.Y.Z"
+   git push origin main
+
+   # Create and push tag
+   git tag -a vX.Y.Z -m "version X.Y.Z"
+   git push origin vX.Y.Z
+   ```
+
+#### Release Process
+
+1. **Pre-release Checklist**
+   - All tests passing
+   - Documentation updated
+   - Version number updated in `pyproject.toml`
+   - All changes committed and pushed
+
+2. **Creating the Release**
+   - Go to Releases page on GitHub
+   - Click "Draft a new release"
+   - Choose or create tag matching version (e.g., `vX.Y.Z`)
+   - Fill in release details
+   - Click "Publish release"
+
+3. **Automated Publishing**
+   The GitHub Actions workflow will automatically:
+   - Build the package
+   - Publish to PyPI using trusted publisher
+   - Make the release available on PyPI
+
+4. **Post-release Verification**
+   - Check GitHub release page
+   - Verify on PyPI
+   - Test installation:
+
+     ```bash
+     python -m venv test_env
+     source test_env/bin/activate  # On Windows: test_env\Scripts\activate
+     pip install falliant==X.Y.Z
+     falliant  # Test basic functionality
+     ```
+
+#### Important Notes
+
+- Changes to workflow files (`.github/workflows/*`) don't require version bumps
+- Documentation-only changes typically use a PATCH version bump
+- PyPI releases only happen when GitHub Releases are created
+- Always ensure GitHub Release tags match the version in `pyproject.toml`
+- The Bump Version workflow helps maintain this synchronization automatically
+
+### Project Structure
 
 ```bash
 falliant/               # Project root
 ├── pyproject.toml      # Package configuration
 ├── README.md           # Documentation
+├── LICENSE             # MIT License
+├── MANIFEST.in         # Package manifest
+├── .github/            # GitHub Actions workflows
 ├── falliant/           # Python package
 │   ├── __init__.py     # Package initialization
 │   ├── __main__.py     # Entry point
@@ -125,12 +217,13 @@ falliant/               # Project root
 │   ├── constants.py    # Game constants
 │   ├── game.py         # Game logic
 │   ├── renderer.py     # Display functions
-│   └── ui.py           # User interface
+│   ├── ui.py           # User interface
+│   └── images/         # Image assets
 ```
 
 ## License
 
-This game is provided as free and open-source software. Feel free to modify and distribute it according to your needs.
+This game is provided under the MIT License. See the LICENSE file for details.
 
 ---
 
