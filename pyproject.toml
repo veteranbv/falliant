@@ -1,25 +1,22 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = [ "setuptools>=42", "wheel",]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "falliant"
-version = "1.0.1"
-authors = [{ name = "Henry Sowell", email = "henry@homelab.engineering" }]
+version = "1.0.2"
 description = "A terminal-based block stacking game"
 readme = "README.pypi.md"
 requires-python = ">=3.6"
 license = "MIT"
-classifiers = [
-  "Programming Language :: Python :: 3",
-  "Operating System :: OS Independent",
-  "Environment :: Console :: Curses",
-  "Topic :: Games/Entertainment :: Puzzle Games",
-]
-dependencies = ["windows-curses;platform_system=='Windows'"]
+classifiers = [ "Programming Language :: Python :: 3", "Operating System :: OS Independent", "Environment :: Console :: Curses", "Topic :: Games/Entertainment :: Puzzle Games",]
+dependencies = [ "windows-curses;platform_system=='Windows'",]
+[[project.authors]]
+name = "Henry Sowell"
+email = "henry@homelab.engineering"
 
 [project.urls]
-"Homepage" = "https://github.com/veteranbv/falliant"
+Homepage = "https://github.com/veteranbv/falliant"
 "Bug Tracker" = "https://github.com/veteranbv/falliant/issues"
 
 [project.scripts]
